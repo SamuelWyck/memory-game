@@ -1,0 +1,55 @@
+header {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    row-gap: 1rem;
+    background-color: var(--primary-color);
+    padding: 1rem;
+}
+
+header p {
+    background-color: var(--secondary-color);
+    font-size: 1.4rem;
+    font-family: "Playfair Display", sans-serif;
+    font-weight: bold;
+    letter-spacing: .06rem;
+    color: white;
+    padding: .7rem;
+    box-shadow: 0px 0px 10px 5px gray;
+    text-align: center;
+}
+
+header nav {
+    display: flex;
+    gap: 1rem;
+}
+
+nav button {
+    cursor: pointer;
+    background-color: var(--secondary-color);
+    border: 2px solid var(--secondary-color);
+    font-size: 1.1rem;
+    color: white;
+    padding: .4rem .5rem;
+    transform: perspective(100px);
+    will-change: transform;
+    transition: transform .1s ease-in-out;
+}
+
+nav button:hover {
+    transform: perspective(100px) translateZ(5px);
+    box-shadow: 0px 0px 10px 2px gray;
+}
+
+
+@media only screen and (width <= 600px) {
+    header p {
+        box-shadow: none;
+        width: 100%;
+    }
+
+    header {
+        padding: 0 0 1rem 0;
+    }
+}
