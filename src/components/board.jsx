@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "../styles/board.css";
 import Card from "./card.jsx";
+import ScoreTracker from "./scoreTracker.jsx";
 
 
 function Board({photoData}) {
@@ -51,6 +52,10 @@ function Board({photoData}) {
 
     return (
         <div className="board">
+            <ScoreTracker 
+                currentScore={clickedCardIdsList.length}
+                bestScore={bestScore}
+            />
             {cardList}
         </div>
     );
