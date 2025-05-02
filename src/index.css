@@ -10,4 +10,6 @@
 html {
   font-size: 16px;
   font-family: "roboto", sans-serif;
+  --primary-color: #00A9A5;
+  --secondary-color: #DC143C;
 }
