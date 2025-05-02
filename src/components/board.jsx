@@ -1,9 +1,11 @@
 import { useState } from "react";
 import "../styles/board.css";
+import Card from "./card.jsx";
 
 
 function Board({photoData}) {
-    const [clickedCardsList, setClickedCardsList] = useState([]);
+    const [cardList, setCardList] = useState(getCardArray(photoData));
+    const [clickedCardIdsList, setClickedCardIdsList] = useState([]);
     const [bestScore, setBestScore] = useState(0);
 
 
@@ -17,25 +19,40 @@ function Board({photoData}) {
     };
 
 
+    function getCardArray(array) {
+        const cardArray = [];
+        for (let item of array) {
+            cardArray.push(
+                <Card 
+                    key={item.id} data={item} 
+                    clickHandler={cardClickHandler}
+                />
+            );
+        }
+        return cardArray;
+    };
+
+
     function cardClickHandler(event) {
         const id = Number(event.target.id);
-        if (clickedCardsList.includes(id)) {
-            setClickedCardsList([]);
+        if (clickedCardIdsList.includes(id)) {
+            setClickedCardIdsList([]);
         } else {
-            const newClickedCardsList = [...clickedCardsList, id];
-            setClickedCardsList(newClickedCardsList);
-            if (newClickedCardsList.length > bestScore) {
+            const newClickedCardIdsList = [...clickedCardIdsList, id];
+            setClickedCardIdsList(newClickedCardIdsList);
+            if (newClickedCardIdsList.length > bestScore) {
                 setBestScore(bestScore + 1);
             }
         }
     };
 
     
-    shuffleArray(photoData);
+    shuffleArray(cardList);
 
     return (
-        <>
-        </>
+        <div className="board">
+            {cardList}
+        </div>
     );
 };
 
