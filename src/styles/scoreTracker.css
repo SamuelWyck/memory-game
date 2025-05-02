@@ -1,6 +1,6 @@
 .score-tracker {
     position: absolute;
-    top: -50px;
+    top: 50px;
     right: 10px;
     background-color: var(--secondary-color);
     color: white;
