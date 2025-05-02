@@ -1,10 +1,13 @@
 import { useState } from 'react';
 import './App.css';
-import Header from './components/header';
+import Header from './components/header.jsx';
+import Board from './components/board.jsx';
+import defaultData from './defaultPics.js';
+
 
 function App() {
 	const picAPIKey = "7c3ntBcQtpYfaylcsqUfE04D4vEjtkowgP5AcSVOjECiKNeT1EQldZBV";
-  	const [photoData, setPhotoData] = useState(null);
+  	const [photoData, setPhotoData] = useState(defaultData);
 
 
 	async function getData(url, options) {
@@ -23,9 +26,14 @@ function App() {
 
 		const url = `https://api.pexels.com/v1/search?query=${query}&per_page=12`;
 		const options = {mode: "cors", headers: {"Authorization": picAPIKey}};
-		const data = await getData(url, options);
-		const photoData = parseData(data);
-		console.log(photoData);
+
+		try {
+			const data = await getData(url, options);
+			const photoData = parseData(data);
+			setPhotoData(photoData);
+		} catch {
+			setPhotoData(defaultData);
+		}
 	};
 
 	
@@ -40,9 +48,14 @@ function App() {
 
 		const url = `https://api.pexels.com/v1/search?query=${query}&per_page=12`;
 		const options = {mode: "cors", headers: {"Authorization": picAPIKey}};
-		const data = await getData(url, options);
-		const photoData = parseData(data);
-		console.log(photoData);
+		
+		try {
+			const data = await getData(url, options);
+			const photoData = parseData(data);
+			setPhotoData(photoData);
+		} catch {
+			setPhotoData(defaultData);
+		}
 	};
 
 
@@ -79,7 +92,11 @@ function App() {
 
 	return (
 		<>
-		<Header artClickHandler={artClickHandler} picClickHandler={picClickHandler}></Header>
+		<Header 
+			artClickHandler={artClickHandler} 
+			picClickHandler={picClickHandler}
+		/>
+		<Board photoData={photoData}/>
 		</>
 	);
 }
