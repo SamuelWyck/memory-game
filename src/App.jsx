@@ -3,8 +3,8 @@ import './App.css';
 import Header from './components/header';
 
 function App() {
-  	const [url, setUrl] = useState(null);
-  	const picAPIKey = "7c3ntBcQtpYfaylcsqUfE04D4vEjtkowgP5AcSVOjECiKNeT1EQldZBV";
+	const picAPIKey = "7c3ntBcQtpYfaylcsqUfE04D4vEjtkowgP5AcSVOjECiKNeT1EQldZBV";
+  	const [photoData, setPhotoData] = useState(null);
 
 
 	async function getData(url, options) {
