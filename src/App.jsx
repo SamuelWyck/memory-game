@@ -40,7 +40,7 @@ function App() {
 	async function picClickHandler() {
 		const querys = [
 			"wild&20animals", "nature%20wallpaper", "cities",
-			"landscape", "fish", "africa%20wildlife",
+			"landscape", "reef%20fish", "africa%20wildlife",
 			"china%20landscape", "food", "abstract",
 			"medieval&20castle", "horse", "bird"
 		];
@@ -96,9 +96,9 @@ function App() {
 			artClickHandler={artClickHandler} 
 			picClickHandler={picClickHandler}
 		/>
-		<Board photoData={photoData}/>
+		<Board photoData={photoData} key={Math.random() * Math.random()}/>
 		</>
 	);
 }
 
-export default App
+export default App;
