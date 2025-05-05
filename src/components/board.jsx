@@ -28,7 +28,6 @@ function Board({photoData}) {
             cardArray.push(
                 <Card 
                     key={item.id} data={item} 
-                    clickHandler={cardClickHandler}
                 />
             );
         }
@@ -37,16 +36,20 @@ function Board({photoData}) {
 
 
     function cardClickHandler(event) {
+        const target = event.target;
+        if (!target.matches(".card") && !target.matches("img")) {
+            return;
+        }
+
         const id = (event.target.matches(".card")) ? 
             Number(event.target.id) : 
             Number(event.target.parentElement.id);
         
         if (clickedCardIdsList.includes(id)) {
-            setClickedCardIdsList(prev => []);
+            setClickedCardIdsList([]);
         } else {
-            const newClickedCardIdsList = [...clickedCardIdsList, id];
             setClickedCardIdsList(prev => [...prev, id]);
-            if (newClickedCardIdsList.length > bestScore) {
+            if (clickedCardIdsList.length + 1 > bestScore) {
                 setBestScore(prev => prev + 1);
             }
         }
@@ -57,7 +60,7 @@ function Board({photoData}) {
 
     return (
         <>
-        <div className="board">
+        <div className="board" onClick={cardClickHandler}>
             {shuffledCardArray}
         </div>
         <ScoreTracker
