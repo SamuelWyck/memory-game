@@ -1,9 +1,9 @@
 import "../styles/card.css";
 
 
-function Card({data, clickHandler}) {
+function Card({data}) {
     return (
-        <div className="card" id={data.id} onClick={clickHandler}>
+        <div className="card" id={data.id}>
             <img src={data.imgSrc} alt={data.alt} />
         </div>
     );
