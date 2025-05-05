@@ -2,6 +2,14 @@
   width: 100%;
   min-height: 100vh;
   display: grid;
-  grid-template-rows: min-content 1fr min-content;
+  grid-template-rows: min-content min-content 1fr min-content;
 }
 
+.rules {
+  justify-self: center;
+  margin-top: 2rem;
+  padding: 0 1rem;
+  font-weight: bold;
+  max-width: 40ch;
+  color: var(--secondary-color);
+}

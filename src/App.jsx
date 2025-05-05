@@ -99,6 +99,7 @@ function App() {
 			artClickHandler={artClickHandler} 
 			picClickHandler={picClickHandler}
 		/>
+		<p className='rules'>Get points by clicking images, but don't click any more than once!</p>
 		<Board photoData={photoData} key={key}/>
 		</>
 	);
