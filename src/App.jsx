@@ -101,6 +101,7 @@ function App() {
 		/>
 		<p className='rules'>Get points by clicking images, but don't click any more than once!</p>
 		<Board photoData={photoData} key={key}/>
+		<footer><p>&copy; Masterpiece Memory</p></footer>
 		</>
 	);
 }
