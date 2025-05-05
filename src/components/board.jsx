@@ -41,16 +41,13 @@ function Board({photoData}) {
             Number(event.target.id) : 
             Number(event.target.parentElement.id);
         
-            
         if (clickedCardIdsList.includes(id)) {
-            setClickedCardIdsList([]);
+            setClickedCardIdsList(prev => []);
         } else {
             const newClickedCardIdsList = [...clickedCardIdsList, id];
-            console.log(clickedCardIdsList)
-            console.log(newClickedCardIdsList)
-            setClickedCardIdsList(newClickedCardIdsList);
+            setClickedCardIdsList(prev => [...prev, id]);
             if (newClickedCardIdsList.length > bestScore) {
-                setBestScore(bestScore + 1);
+                setBestScore(prev => prev + 1);
             }
         }
     };
