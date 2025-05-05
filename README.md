@@ -1,3 +1,3 @@
 # Memory Game
 
-A simple memory game created for teh Odin Project to practice apis with react.
+A simple memory game created for the Odin Project to practice apis with react.
