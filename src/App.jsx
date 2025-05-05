@@ -8,6 +8,7 @@ import defaultData from './defaultPics.js';
 function App() {
 	const picAPIKey = "7c3ntBcQtpYfaylcsqUfE04D4vEjtkowgP5AcSVOjECiKNeT1EQldZBV";
   	const [photoData, setPhotoData] = useState(defaultData);
+	const [key, setKey] = useState(0);
 
 
 	async function getData(url, options) {
@@ -34,6 +35,7 @@ function App() {
 		} catch {
 			setPhotoData(defaultData);
 		}
+		setKey(key + 1);
 	};
 
 	
@@ -56,6 +58,7 @@ function App() {
 		} catch {
 			setPhotoData(defaultData);
 		}
+		setKey(key + 1);
 	};
 
 
@@ -96,7 +99,7 @@ function App() {
 			artClickHandler={artClickHandler} 
 			picClickHandler={picClickHandler}
 		/>
-		<Board photoData={photoData} key={Math.random() * Math.random()}/>
+		<Board photoData={photoData} key={key}/>
 		</>
 	);
 }
